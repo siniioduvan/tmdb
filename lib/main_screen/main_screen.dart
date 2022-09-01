@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tmdb/widgets/movie_details/movie_detail_widget.dart';
 import 'package:tmdb/widgets/movie_list/movie_list_widger.dart';
 
 import '../widgets/circleProgressWigdet.dart';
@@ -13,15 +14,15 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedTab = 0;
 
-  static List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Новости',
-    ),
-    MovieListWidget(),
-    Text(
-      'Сериалы',
-    ),
-  ];
+  // static List<Widget> _widgetOptions = <Widget>[
+  //   Text(
+  //     'Новости',
+  //   ),
+  //   MovieListWidget(),
+  //   Text(
+  //     'Сериалы',
+  //   ),
+  // ];
 
   void onSelectTab(int index) {
     if (_selectedTab == index) return;
@@ -41,9 +42,7 @@ class _MainScreenState extends State<MainScreen> {
         children: [
           CircleProgressWidget(),
           MovieListWidget(),
-          Text(
-            'Сериалы',
-          ),
+          MovieDetailsWidget(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(

@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 
 class Movie {
+  final int id;
   final String imageName;
   final String title;
   final String time;
   final String description;
 
   Movie({
+    required this.id,
     required this.imageName,
     required this.title,
     required this.time,
@@ -17,54 +19,63 @@ class Movie {
 
 final movies = [
   Movie(
+    id: 1,
     imageName: AppImage.poster,
     title: 'Взаперти',
     time: '24 марта 2022',
     description: 'Джессика чего то там...',
   ),
   Movie(
+    id: 2,
     imageName: AppImage.poster,
     title: 'Сзади',
     time: '24 марта 2022',
     description: 'Джессика чего то там...',
   ),
   Movie(
+    id: 3,
     imageName: AppImage.poster,
     title: 'Спереди',
     time: '24 марта 2022',
     description: 'Джессика чего то там...',
   ),
   Movie(
+    id: 4,
     imageName: AppImage.poster,
     title: 'Снаружи',
     time: '24 марта 2022',
     description: 'Джессика чего то там...',
   ),
   Movie(
+    id: 5,
     imageName: AppImage.poster,
     title: 'Внутри',
     time: '24 марта 2022',
     description: 'Джессика чего то там...',
   ),
   Movie(
+    id: 6,
     imageName: AppImage.poster,
     title: 'Позади',
     time: '24 марта 2022',
     description: 'Джессика чего то там...',
   ),
   Movie(
+    id: 7,
     imageName: AppImage.poster,
     title: 'Сверху',
     time: '24 марта 2022',
     description: 'Джессика чего то там...',
   ),
   Movie(
+    id: 8,
     imageName: AppImage.poster,
     title: 'Снизу',
     time: '24 марта 2022',
     description: 'Джессика чего то там...',
   ),
   Movie(
+    id: 9,
     imageName: AppImage.poster,
     title: 'Везде и нигде',
     time: '24 марта 2022',
@@ -105,6 +116,11 @@ class _MovieListWidgetState extends State<MovieListWidget> {
   }
 
   final searchController = TextEditingController();
+
+  void _onMovieTap(int index) {
+    final id = movies[index].id;
+    Navigator.of(context).pushNamed('/mainScreen/movie_detail', arguments: id);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -177,9 +193,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                       color: Colors.transparent,
                       child: InkWell(
                         borderRadius: BorderRadius.circular(10),
-                        onTap: () {
-                          print('press');
-                        },
+                        onTap: () => _onMovieTap(index),
                       ),
                     ),
                   ],
