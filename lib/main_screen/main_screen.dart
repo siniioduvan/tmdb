@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tmdb/widgets/movie_list/movie_list_widger.dart';
 
+import '../widgets/circleProgressWigdet.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
@@ -37,9 +39,7 @@ class _MainScreenState extends State<MainScreen> {
       body: IndexedStack(
         index: _selectedTab,
         children: [
-          Text(
-            'Новости',
-          ),
+          CircleProgressWidget(),
           MovieListWidget(),
           Text(
             'Сериалы',
